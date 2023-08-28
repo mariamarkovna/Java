@@ -13,6 +13,7 @@ public class PensionFund {
         this.numberOfMembers = numberOfMembers;
     }
 
+
     public String getName() {
         return name;
     }

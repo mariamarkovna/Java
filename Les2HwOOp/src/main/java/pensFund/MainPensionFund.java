@@ -9,6 +9,7 @@ public class MainPensionFund {
         PensionFund pensionFund2=new PensionFund("Flower", false, "12.07.1986", 70);
         PensionFund pensionFund3=new PensionFund("Starship", true, "23.12.1976", 65);
 
+
         pensionFund.info();
         pensionFund1.info();
         pensionFund2.info();
