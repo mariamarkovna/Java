@@ -5,6 +5,7 @@ public class MainPerson {
         Person person = new Person("Анатолий", 56, 175, 80);
         person.setMoney(5000);
 
+
         Person person1 = new Person("Марина", 15, 160, 55);
         person1.setMoney(45);
 
