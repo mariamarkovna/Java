@@ -5,7 +5,6 @@ public class MainPerson {
         Person person = new Person("Анатолий", 56, 175, 80);
         person.setMoney(5000);
 
-
         Person person1 = new Person("Марина", 15, 160, 55);
         person1.setMoney(45);
 
@@ -29,8 +28,11 @@ public class MainPerson {
         person2.goToWork();
         person3.goToWork();
         person4.goToWork();
+
+        Worker worker=new Worker("Ivanov",35,180,65.5, 3000,8000);
+        worker.die();
+
+        Pensioner pensioner=new Pensioner("Petrov",75,177,85.5,1000.78);
+        pensioner.die();
     }
-
-
-
 }

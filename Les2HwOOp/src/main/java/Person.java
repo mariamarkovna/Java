@@ -69,4 +69,8 @@ public class Person {
     public int getMoney() {
         return money;
     }
+
+    public void die(){
+        System.out.println("Человек погиб");
+    }
 }
