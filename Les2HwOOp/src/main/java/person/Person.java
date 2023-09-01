@@ -1,17 +1,23 @@
-public class Person {
+package person;
+
+import java.util.Objects;
+
+public abstract class Person {
     private String name;
     private int age;
     private int height;
     private double weight;
     private int money;
 
-
     public Person(String name, int age, int height, double weight) {
         this.name = name;
         this.age = age;
         this.height = height;
         this.weight = weight;
-
+    }
+    public Person(String name, int age){
+        this.name=name;
+        this.age=age;
     }
 
     public void getInfo() {
@@ -72,5 +78,30 @@ public class Person {
 
     public void die(){
         System.out.println("Человек погиб");
+    }
+    public abstract int die(int years);
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return age == person.age && height == person.height && Double.compare(weight, person.weight) == 0 && money == person.money && Objects.equals(name, person.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, height, weight, money);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", money=" + money +
+                '}';
     }
 }
