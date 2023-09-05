@@ -79,7 +79,7 @@ public abstract class Person {
     public void die(){
         System.out.println("Человек погиб");
     }
-    public abstract int die(int years);
+    public abstract void die(int years);
 
     @Override
     public boolean equals(Object o) {

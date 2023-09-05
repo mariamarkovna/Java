@@ -16,9 +16,8 @@ public class Pensioner extends Person {
         System.out.println("Этот пенсионер умер, он заработал " + x);
     }
 
-    public int die(int years) {
+    public void die(int years) {
         System.out.println("Этот пенсионер умрет через " + years + " лет");
-        return years;
     }
 
     @Override
@@ -40,5 +39,13 @@ public class Pensioner extends Person {
         return "Pensioner{" +
                 "pension=" + pension +
                 '}';
+    }
+
+    public double getPension() {
+        return pension;
+    }
+
+    public void setPension(double pension) {
+        this.pension = pension;
     }
 }

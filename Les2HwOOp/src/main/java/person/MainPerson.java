@@ -41,7 +41,6 @@ public class MainPerson {
         worker.die(15);
         worker.die();
 
-
         pensioner.die(9);
         pensioner.die();
     }
