@@ -1,5 +1,7 @@
 package pensFund;
 
+import person.AbleToCalculatePension;
+
 public class PensionFund {
     private String name;
     private boolean state;
@@ -46,10 +48,19 @@ public class PensionFund {
         System.out.println("Название пенсионного фонда: "+ name);
         System.out.println("Дата основания пенсионного фонда: "+ startDate);
         if (state == true) {
-            System.out.println("Государственный пенсионный фонд. Использует " + numberOfMembers + " тысяч человек");
+            System.out.println("Государственный пенсионный фонд. Использует " + numberOfMembers/1000 + " тысяч человек");
         } else {
             System.out.println("Негосударственный пенсионный фонд. Использует " + numberOfMembers + " человек");
         }
         System.out.println(" ");
+    }
+    public double calculatePensionFor(AbleToCalculatePension obj){
+        if(isState()==true){
+            obj.calculatePension();
+            return obj.calculatePension();
+        } else if (isState()==false) {
+            return 0;
+        }
+        return 0;
     }
 }

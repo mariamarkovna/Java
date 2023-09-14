@@ -5,8 +5,8 @@ import java.util.Objects;
 public class Pensioner extends Person {
     private double pension;
 
-    public Pensioner(String name, int age, int height, double weight, double pension) {
-        super(name, age, height, weight);
+    public Pensioner(String name, int age, int height, double weight, double pension, Gender gender) {
+        super(name, age, height, weight,gender);
         this.pension = pension;
     }
 

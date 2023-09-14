@@ -8,17 +8,21 @@ public abstract class Person {
     private int height;
     private double weight;
     private int money;
+    private Gender gender;
 
-    public Person(String name, int age, int height, double weight) {
+    public Person(String name, int age, int height, double weight, Gender gender) {
         this.name = name;
         this.age = age;
         this.height = height;
         this.weight = weight;
+        this.gender=gender;
     }
     public Person(String name, int age){
         this.name=name;
         this.age=age;
     }
+
+
 
     public void getInfo() {
         System.out.println("Имя: " + name);
@@ -59,6 +63,14 @@ public abstract class Person {
     public double getWeight() {
         return weight;
     }
+
+    public void setGender(Gender gender){
+        this.gender=gender;
+    };
+
+    public Gender getGender(){
+        return gender;
+    };
 
     public void goToWork() {
         if (age < 18 || age > 70) {

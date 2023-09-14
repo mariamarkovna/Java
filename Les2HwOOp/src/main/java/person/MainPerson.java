@@ -1,5 +1,8 @@
 package person;
 
+import static person.Gender.FEMALE;
+import static person.Gender.MALE;
+
 public class MainPerson {
     public static void main(String[] args) {
 //        Person person = new Person("Анатолий", 56, 175, 80);
@@ -35,13 +38,16 @@ public class MainPerson {
 //        Pensioner pensioner=new Pensioner("Petrov",75,177,85.5,1000.78);
 //        pensioner.die();
 
-        Person worker = new Worker("Anna", 27, 169, 57.9, 2000, 5000);
-        Person pensioner = new Pensioner("Levon", 72, 183, 80.4, 1200);
+        Person worker = new Worker("Anna", 27, 169, 57.9, FEMALE, 2000,5000);
+        Person pensioner = new Pensioner("Levon", 72, 183, 80.4, 1200,MALE);
 
         worker.die(15);
         worker.die();
 
         pensioner.die(9);
         pensioner.die();
+        System.out.println(((Worker) worker).calculatePension());
+
+
     }
 }

@@ -14,7 +14,5 @@ public class MainPensionFund {
         pensionFund1.info();
         pensionFund2.info();
         pensionFund3.info();
-
-
     }
 }

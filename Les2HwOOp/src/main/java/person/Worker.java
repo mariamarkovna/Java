@@ -7,13 +7,14 @@ public class Worker extends Person implements AbleToCalculatePension{
     private int maxSalary;
 
 
-    public Worker(String name, int age, int height, double weight, int minSalary, int maxSalary) {
-        super(name, age, height, weight);
+    public Worker(String name, int age, int height, double weight, Gender gender,int minSalary, int maxSalary) {
+        super(name, age, height, weight,gender);
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
     }
-    public Worker(String name, int age, int height, double weight){
-        super(name, age, height, weight);
+    public Worker(String name, int age, int height, double weight,Gender gender){
+
+        super(name, age, height, weight,gender);
     };
 
     public Worker(String name, int age,int minSalary, int maxSalary){
@@ -39,9 +40,16 @@ public class Worker extends Person implements AbleToCalculatePension{
     }
 
     @Override
-    public double calculatePension() {
-        double pension = CalculatorUtils.calculateAverage(this.getMinSalary(), this.getMaxSalary()) * 0.25;
+    public double calculatePension(){
+        float coef = 0.25f;
+        if (getGender()==Gender.MALE){
+            double pension = CalculatorUtils.calculateAverage(this.getMinSalary(), this.getMaxSalary()) * coef;
         return pension;
+        } else if (getGender()==Gender.FEMALE) {
+            double pension = CalculatorUtils.calculateAverage(this.getMinSalary()/2, this.getMaxSalary()*2) * coef;
+            return pension;
+        }
+        return 0;
     }
 
     @Override
