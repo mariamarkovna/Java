@@ -15,68 +15,85 @@ public abstract class Person {
         this.age = age;
         this.height = height;
         this.weight = weight;
-        this.gender=gender;
-    }
-    public Person(String name, int age){
-        this.name=name;
-        this.age=age;
+        this.gender = gender;
     }
 
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 
+    public Person(String name, int age, Gender gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
 
     public void getInfo() {
         System.out.println("Имя: " + name);
         System.out.println("Лет: " + age);
         System.out.println("Рост: " + height);
         System.out.println("Вес: " + weight);
-        System.out.println("Сумма денег: " + money+"\n");
+        System.out.println("Сумма денег: " + money + "\n");
     }
 
-    public void setName(String name){
-        this.name= name;
-    };
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getName(){
+    ;
+
+    public String getName() {
         return name;
     }
 
-    public void setAge(int age){
-        this.age= age;
-    };
+    public void setAge(int age) {
+        this.age = age;
+    }
 
-    public int getAge(){
+    ;
+
+    public int getAge() {
         return age;
     }
 
-    public void setHeight(int height){
-        this.height= height;
-    };
+    public void setHeight(int height) {
+        this.height = height;
+    }
 
-    public int getHeight(){
+    ;
+
+    public int getHeight() {
         return height;
     }
 
-    public void setWeight(double weight){
-        this.weight= weight;
-    };
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    ;
 
     public double getWeight() {
         return weight;
     }
 
-    public void setGender(Gender gender){
-        this.gender=gender;
-    };
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 
-    public Gender getGender(){
+    ;
+
+    public Gender getGender() {
         return gender;
-    };
+    }
+
+    ;
 
     public void goToWork() {
         if (age < 18 || age > 70) {
-            System.out.println(name+": Йехуууу!!!!Oтдыхаю дома");
+            System.out.println(name + ": Йехуууу!!!!Oтдыхаю дома");
         } else {
-            System.out.println(name+": Работаю");
+            System.out.println(name + ": Работаю");
         }
     }
 
@@ -88,9 +105,10 @@ public abstract class Person {
         return money;
     }
 
-    public void die(){
+    public void die() {
         System.out.println("Человек погиб");
     }
+
     public abstract void die(int years);
 
     @Override

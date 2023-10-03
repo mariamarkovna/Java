@@ -2,31 +2,40 @@ package person;
 
 import java.util.Objects;
 
-public class Worker extends Person implements AbleToCalculatePension{
+public class Worker extends Person implements AbleToCalculatePension {
     private int minSalary;
     private int maxSalary;
 
 
-    public Worker(String name, int age, int height, double weight, Gender gender,int minSalary, int maxSalary) {
-        super(name, age, height, weight,gender);
+    public Worker(String name, int age, int height, double weight, Gender gender, int minSalary, int maxSalary) {
+        super(name, age, height, weight, gender);
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
     }
-    public Worker(String name, int age, int height, double weight,Gender gender){
 
-        super(name, age, height, weight,gender);
-    };
+    public Worker(String name, int age, int height, double weight, Gender gender) {
 
-    public Worker(String name, int age,int minSalary, int maxSalary){
-        super(name,age);
+        super(name, age, height, weight, gender);
+    }
+
+    ;
+
+    public Worker(String name, int age, int minSalary, int maxSalary) {
+        super(name, age);
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
     }
-    public Worker(String name, int age,int maxSalary){
-        super(name,age);
+
+    public Worker(String name, int age, int maxSalary) {
+        super(name, age);
         this.maxSalary = maxSalary;
     }
 
+    public Worker(String name, int age, Gender gender, int minSalary, int maxSalary) {
+        super(name, age, gender);
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
+    }
 
 
     @Override
@@ -40,15 +49,16 @@ public class Worker extends Person implements AbleToCalculatePension{
     }
 
     @Override
-    public double calculatePension(){
+    public double calculatePension() {
         float coef = 0.25f;
-        if (getGender()==Gender.MALE){
+        if (getGender() == Gender.MALE) {
             double pension = CalculatorUtils.calculateAverage(this.getMinSalary(), this.getMaxSalary()) * coef;
-        return pension;
-        } else if (getGender()==Gender.FEMALE) {
-            double pension = CalculatorUtils.calculateAverage(this.getMinSalary()/2, this.getMaxSalary()*2) * coef;
+            return pension;
+        } else if (getGender() == Gender.FEMALE) {
+            double pension = CalculatorUtils.calculateAverage(this.getMinSalary() / 2, this.getMaxSalary() * 2) * coef;
             return pension;
         }
+        System.out.println("Undecided sex");
         return 0;
     }
 

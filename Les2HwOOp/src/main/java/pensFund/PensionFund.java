@@ -1,18 +1,23 @@
 package pensFund;
 
 import person.AbleToCalculatePension;
+import person.Worker;
+
+import java.util.List;
+import java.util.Objects;
 
 public class PensionFund {
     private String name;
     private boolean state;
     private String startDate;
-    private int numberOfMembers;
+    private List<Worker> persons;
 
-    public PensionFund(String name, boolean state, String startDate, int numberOfMembers) {
+
+    public PensionFund(String name, boolean state, String startDate, List<Worker> persons) {
         this.name = name;
         this.state = state;
         this.startDate = startDate;
-        this.numberOfMembers = numberOfMembers;
+        this.persons = persons;
     }
 
 
@@ -36,31 +41,69 @@ public class PensionFund {
         return startDate;
     }
 
-    public int getNumberOfMembers() {
-        return numberOfMembers;
+    public List<Worker> getPersons() {
+        return persons;
     }
 
-    public void setNumberOfMembers(int numberOfMembers) {
-        this.numberOfMembers = numberOfMembers;
+    public void setPersons(int numberOfMembers) {
+
+        this.persons = persons;
     }
 
     public void info() {
-        System.out.println("Название пенсионного фонда: "+ name);
-        System.out.println("Дата основания пенсионного фонда: "+ startDate);
-        if (state == true) {
-            System.out.println("Государственный пенсионный фонд. Использует " + numberOfMembers/1000 + " тысяч человек");
+        System.out.println("Название пенсионного фонда: " + name);
+        System.out.println("Дата основания пенсионного фонда: " + startDate);
+        if (persons == null) {
+            return;
+        }
+        if (state) {
+            System.out.println("Государственный пенсионный фонд. Использует " + persons.size() / 1000 + " тысяч человек");
         } else {
-            System.out.println("Негосударственный пенсионный фонд. Использует " + numberOfMembers + " человек");
+            System.out.println("Негосударственный пенсионный фонд. Использует " + persons.size() + " человек");
         }
         System.out.println(" ");
     }
-    public double calculatePensionFor(AbleToCalculatePension obj){
-        if(isState()==true){
-            obj.calculatePension();
+
+    public double calculatePensionFor(AbleToCalculatePension obj) {
+        if (isState()) {
             return obj.calculatePension();
-        } else if (isState()==false) {
-            return 0;
+        } else {
+            return 0.0;
         }
-        return 0;
+    }
+
+    public double calculateMedianPension() {
+        if (persons == null || persons.size() == 0) {
+            return 0.0;
+        }
+        double sum = 0.0;
+        for (Worker worker : persons) {
+            sum += calculatePensionFor(worker);
+
+        }
+        return sum / persons.size();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PensionFund that = (PensionFund) o;
+        return state == that.state && Objects.equals(name, that.name) && Objects.equals(startDate, that.startDate) && Objects.equals(persons, that.persons);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, state, startDate, persons);
+    }
+
+    @Override
+    public String toString() {
+        return "PensionFund{" +
+                "name='" + name + '\'' +
+                ", state=" + state +
+                ", startDate='" + startDate + '\'' +
+                ", persons=" + persons +
+                '}';
     }
 }
